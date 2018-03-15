@@ -17,7 +17,8 @@
         }, {
             "age": 31,
             "eyeColor": "brown",
-            "text": "Washington Bird"
+            "text": "Washington Bird",
+            "className": ["fa fa-bus"]
         }, {
             "age": 32,
             "eyeColor": "blue",

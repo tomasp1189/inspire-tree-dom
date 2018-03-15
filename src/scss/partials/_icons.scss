@@ -52,6 +52,10 @@
 }
 
 .inspire-tree {
+    .leaf-icon{
+        display: inline-block;
+        padding-left: 42px;
+    }
     .icon::before {
         background-position: 0 0;
         background-repeat: no-repeat;

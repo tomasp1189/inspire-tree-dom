@@ -2395,6 +2395,23 @@ var Checkbox = function (_Component) {
     return Checkbox;
 }(Component$1);
 
+var Icon = function (_Component) {
+    inherits(Icon, _Component);
+
+    function Icon() {
+        classCallCheck(this, Icon);
+        return possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).apply(this, arguments));
+    }
+
+    createClass(Icon, [{
+        key: 'render',
+        value: function render() {
+            return createVNode(1, 'i', 'leaf-icon ' + this.props.iconClass);
+        }
+    }]);
+    return Icon;
+}(Component$1);
+
 /**
  * Utility method for parsing and merging custom class names.
  *
@@ -2408,7 +2425,6 @@ var classlist = (function (node) {
 
     var nodeAttrs = node.itree[type].attributes;
     var classNames = [];
-    var individualClasses = node.class || node.className;
 
     // Append any custom class names
     var customClasses = nodeAttrs.class || nodeAttrs.className;
@@ -2426,9 +2442,6 @@ var classlist = (function (node) {
         } else if (_$1.isArray(customClasses)) {
             classNames = classNames.concat(customClasses);
         }
-    }
-    if (!_$1.isEmpty(individualClasses)) {
-        classNames = classNames.concat(individualClasses);
     }
 
     return classNames;
@@ -3178,6 +3191,17 @@ var ListItem = function (_Component) {
             }
         }
     }, {
+        key: 'renderIcon',
+        value: function renderIcon() {
+            var node = this.props.node;
+
+            var iconClass = node.class || node.className;
+            var classes = iconClass ? iconClass.join(' ') : '';
+            return createComponentVNode(2, Icon, {
+                'iconClass': classes
+            });
+        }
+    }, {
         key: 'renderChildren',
         value: function renderChildren() {
             var _props = this.props,
@@ -3241,7 +3265,7 @@ var ListItem = function (_Component) {
 
             var node = this.props.node;
 
-            var li = normalizeProps(createVNode(1, 'li', null, [this.renderEditToolbar(), createVNode(1, 'div', 'title-wrap', [this.renderToggle(), this.renderCheckbox(), createComponentVNode(2, NodeAnchor, {
+            var li = normalizeProps(createVNode(1, 'li', null, [this.renderEditToolbar(), createVNode(1, 'div', 'title-wrap', [this.renderToggle(), this.renderCheckbox(), this.renderIcon(), createComponentVNode(2, NodeAnchor, {
                 'dom': this.props.dom,
                 'editing': node.editing(),
                 'expanded': node.expanded(),

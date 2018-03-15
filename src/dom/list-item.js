@@ -1,4 +1,5 @@
 import Checkbox from './checkbox';
+import Icon from './icon';
 import classlist from '../lib/classlist';
 import Component from 'inferno-component';
 import EditToolbar from './edit-toolbar';
@@ -136,7 +137,7 @@ export default class ListItem extends Component {
 
             // Validate with a custom recursor because a return of "false"
             // should mean "do not descend" rather than "stop iterating"
-            const recursor = function(obj, iteratee) {
+            const recursor = function (obj, iteratee) {
                 if (InspireTree.isTreeNodes(obj)) {
                     _.each(obj, (n) => {
                         recursor(n, iteratee);
@@ -331,6 +332,14 @@ export default class ListItem extends Component {
         }
     }
 
+    renderIcon() {
+        const node = this.props.node;
+
+        let iconClass = node.class || node.className;
+        let classes = iconClass? iconClass.join(' ') : '';
+        return <Icon iconClass={classes} />;
+    }
+
     renderChildren() {
         const { node, dom } = this.props;
 
@@ -377,12 +386,13 @@ export default class ListItem extends Component {
         const node = this.props.node;
 
         const li = (<li
-            {...this.getAttributes()}
+            {...this.getAttributes() }
             ref={elem => this.node = this.props.node.itree.ref = elem}>
-            { this.renderEditToolbar() }
+            {this.renderEditToolbar()}
             <div className='title-wrap'>
-                { this.renderToggle() }
-                { this.renderCheckbox() }
+                {this.renderToggle()}
+                {this.renderCheckbox()}
+                {this.renderIcon()}
                 <NodeAnchor
                     dom={this.props.dom}
                     editing={node.editing()}
@@ -392,7 +402,7 @@ export default class ListItem extends Component {
                     text={node.text} />
             </div>
             <div className='wholerow' />
-            { this.renderChildren() }
+            {this.renderChildren()}
         </li>);
 
         // Clear dirty bool only after everything has been generated (and states set)
