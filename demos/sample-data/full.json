@@ -12,7 +12,8 @@
         }, {
             "age": 37,
             "eyeColor": "green",
-            "text": "Ryan Berger"
+            "text": "Ryan Berger",
+            "className": ["icon-file-empty"]
         }, {
             "age": 31,
             "eyeColor": "brown",
@@ -58,7 +59,8 @@
         "children": [{
             "age": 37,
             "eyeColor": "green",
-            "text": "Ryan Berger"
+            "text": "Ryan Berger",
+            "className":["icon-pencil"]
         }, {
             "age": 31,
             "eyeColor": "brown",

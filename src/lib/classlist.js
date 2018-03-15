@@ -11,9 +11,10 @@ import * as _ from 'lodash';
 export default (node, type = 'li') => {
     const nodeAttrs = node.itree[type].attributes;
     let classNames = [];
+    let individualClasses = node.class || node.className;
 
     // Append any custom class names
-    let customClasses = nodeAttrs.class || nodeAttrs.className;
+    let customClasses = nodeAttrs.class || nodeAttrs.className
 
     // Support callbacks
     if (_.isFunction(customClasses)) {
@@ -29,6 +30,9 @@ export default (node, type = 'li') => {
         else if (_.isArray(customClasses)) {
             classNames = classNames.concat(customClasses);
         }
+    }
+    if (!_.isEmpty(individualClasses)) {
+        classNames = classNames.concat(individualClasses);
     }
 
     return classNames;

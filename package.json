@@ -1,7 +1,7 @@
 {
-  "name": "inspire-tree-dom",
-  "version": "4.0.3",
-  "description": "DOM rendering engine for Inspire Tree",
+  "name": "inspire-tree-dom-2",
+  "version": "0.1.0",
+  "description": "Forked origin DOM rendering engine for Inspire Tree",
   "repository": "https://github.com/helion3/inspire-tree-dom",
   "license": "MIT",
   "peerDependencies": {
@@ -17,6 +17,7 @@
     "babel-plugin-inferno": "^4.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",
+    "cross-env": "^5.1.4",
     "cssnano": "^3.10.0",
     "eslint": "^4.5.0",
     "eslint-plugin-inferno": "^7.0.1",
@@ -34,7 +35,7 @@
     "postcss": "^6.0.10",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-commonjs": "8.3.0",
     "rollup-plugin-gzip": "^1.3.0",
     "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-replace": "^2.0.0",
@@ -43,10 +44,11 @@
   },
   "scripts": {
     "lint": "scss-lint src/scss/**/*.scss && eslint test src *.js",
-    "test": "./node_modules/karma/bin/karma start",
+    "test": "karma start",
     "watch": "rollup -c -w",
     "deploy": "DIST=1 rollup -c && DIST=1 MIN=1 rollup -c && DIST=1 node scss.js && DIST=1 MIN=1 node scss.js",
-    "setup": "cp hooks/pre-commit .git/hooks/pre-commit"
+    "setup": "cp hooks/pre-commit .git/hooks/pre-commit",
+    "build": "cross-env DIST=1 rollup -c && cross-env DIST=1 MIN=1 rollup -c && cross-env DIST=1 node scss.js && cross-env DIST=1 MIN=1 node scss.js"
   },
   "main": "dist/inspire-tree-dom.js",
   "types": "inspire-tree-dom.d.ts",

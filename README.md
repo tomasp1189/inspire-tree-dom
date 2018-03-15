@@ -1,10 +1,10 @@
-# Inspire Tree DOM
+# Custom Inspire Tree DOM
 
 [![Join the chat at https://gitter.im/helion3/inspire-tree](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/helion3/inspire-tree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Build Status](https://travis-ci.org/helion3/inspire-tree-dom.svg?branch=master)](https://travis-ci.org/helion3/inspire-tree-dom)
 
-Inspire Tree DOM is the DOM rendering engine for [Inspire Tree](https://github.com/helion3/inspire-tree).
+Inspire Tree DOM 2 is a modified version of the original DOM rendering engine for [Inspire Tree](https://github.com/helion3/inspire-tree).
 
 InspireTree is required.
 
@@ -22,8 +22,7 @@ InspireTree is required.
 
 ### Installation
 
-- Yarn: `yarn install --save-dev inspire-tree-dom` or
-- NPM `npm install --save-dev inspire-tree-dom`
+- NPM `npm install --save-dev inspire-tree-dom-2`
 
 ## Usage
 
